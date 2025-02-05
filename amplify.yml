@@ -1,0 +1,23 @@
+version: 1.0
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Installing Flutter SDK"
+        - git clone https://github.com/flutter/flutter.git -b stable --depth 1
+        - export PATH="$PATH:$(pwd)/flutter/bin"
+        - flutter config --no-analytics
+        - flutter doctor
+        - echo "Installing dependencies"
+        - flutter pub get
+    build:
+      commands:
+        - echo "Building Flutter web application with WASM support"
+        - flutter build web --wasm
+  artifacts:
+    baseDirectory: web
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - flutter/.pub-cache
