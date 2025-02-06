@@ -13,7 +13,7 @@ frontend:
     build:
       commands:
         - echo "Building Flutter web application with WASM support"
-        - flutter build web --wasm
+        - flutter build web
   artifacts:
     baseDirectory: build/web
     files:
