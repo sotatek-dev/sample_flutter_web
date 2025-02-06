@@ -15,7 +15,7 @@ frontend:
         - echo "Building Flutter web application with WASM support"
         - flutter build web --wasm
   artifacts:
-    baseDirectory: web
+    baseDirectory: build/web
     files:
       - '**/*'
   cache:
